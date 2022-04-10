@@ -31,3 +31,13 @@ Route::get('/topic', function () {
     return view('client.topic');
 });
 Route::get('dashboard/home','App\Http\Controllers\DashboardController@home');
+
+Route::get('dashboard/category/new','App\Http\Controllers\CategoryController@create')->name('category.new');
+Route::post('dashboard/category/new','App\Http\Controllers\CategoryController@store')->name('category.store');
+Route::get('dashboard/categories','App\Http\Controllers\CategoryController@index')->name('categories');
+Route::get('dashboard/categories/{id}','App\Http\Controllers\CategoryController@show')->name('category');
+
+Route::get('dashboard/categories/edit/{id}','App\Http\Controllers\CategoryController@edit')->name('category.edit');
+Route::post('dashboard/categories/edit/{id}','App\Http\Controllers\CategoryController@update')->name('category.update');
+Route::get('dashboard/categories/delete/{id}','App\Http\Controllers\CategoryController@destroy')->name('category.destroy');
+
